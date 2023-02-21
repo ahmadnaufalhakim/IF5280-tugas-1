@@ -29,14 +29,14 @@ taxonomy_sibling(X,Y) :-
 
 %% Descendant (semua turunan)
 descendant(X,Y) :-
-  parent(Y,X).
+  direct_descendant(X,Y).
 descendant(X,Y) :-
   parent(Y,Z),
   descendant(X,Z).
 
 %% Ascendant (semua leluhur)
 ascendant(X,Y) :-
-  parent(X,Y).
+  direct_ascendant(X,Y).
 ascendant(X,Y) :-
   parent(X,Z),
   ascendant(Z,Y).
