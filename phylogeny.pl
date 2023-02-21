@@ -27,23 +27,19 @@ taxonomy_sibling(X,Y) :-
   parent(Z,Y),
   dif(X,Y).
 
-%% Descendants (semua turunan)
+%% Descendant (semua turunan)
 descendant(X,Y) :-
   parent(Y,X).
 descendant(X,Y) :-
   parent(Y,Z),
   descendant(X,Z).
-descendants(L,X) :-
-  findall(A,descendant(A,X),L).
 
-%% Ascendants (semua leluhur)
+%% Ascendant (semua leluhur)
 ascendant(X,Y) :-
   parent(X,Y).
 ascendant(X,Y) :-
   parent(X,Z),
   ascendant(Z,Y).
-ascendants(L,X) :-
-  findall(A,ascendant(A,X),L).
 
 %% Same level (entri dengan level yang sama)
 same_level(carnivora,carnivora).
